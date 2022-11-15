@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:07:54 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/10 21:29:14 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/10 22:27:42 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int	parsing_options(va_list ap, char **str)
 	count = 0;
 	ft_memset(&options, 0, sizeof(t_data));
 	parsing_flags(&options, &str);
-	parsing_wdt_prc(&(options->wdt), &str);
+	parsing_wdt_prc(&(options.wdt), &str);
 	if (*str = '.')
 	{
-		options->dot = 1;
-		parsing_wdt_prc(&(options->prc), &str);
+		options.dot = 1;
+		parsing_wdt_prc(&(options.prc), &str);
 	}
 	if (ft_strchr("cspdiuxX%", *str) != 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:11:17 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/10 21:42:40 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/14 19:48:24 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	print_conversions(t_data *options, va_list ap, char **str)
 		count += print_u(va_arg(ap, unsigned int), options);
 	else if (*str == 'x' || 'X')
 		count += print_xX(va_arg(ap, unsigned int), options);
-	else
+	else if (*str == '%')
 		count += print_c('%', options);
 	return (count);
 }

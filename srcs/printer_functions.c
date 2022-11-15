@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printers.c                                         :+:      :+:    :+:   */
+/*   printer_functions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/10 21:36:45 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/14 20:18:24 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../ft_printf.h"
 
 int	ft_putchar(int c)
 {
@@ -29,6 +31,12 @@ int	ft_putnchar(int c, int n)
 	return (n);
 }
 
+int	ft_putnstr(char *str, int n)
+{
+	write (1, str, n);
+	return (n);
+}
+
 int	ft_putnbr(int n)
 {
 	long	nb2;
@@ -40,7 +48,6 @@ int	ft_putnbr(int n)
 	if (n < 0)
 	{
 		nb2 = nb2 * (-1);
-		count += ft_putchar("-");
 	}
 	if (nb2 / 10 != 0)
 	{
@@ -48,6 +55,5 @@ int	ft_putnbr(int n)
 	}
 	c = nb2 % 10 + '0';
 	count += ft_putchar(c);
-
 	return (count);
 }
