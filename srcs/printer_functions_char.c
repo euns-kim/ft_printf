@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printer_functions.c                                :+:      :+:    :+:   */
+/*   printer_functions_char.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/14 20:18:24 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:30:23 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,4 @@ int	ft_putnstr(char *str, int n)
 {
 	write (1, str, n);
 	return (n);
-}
-
-int	ft_putnbr(int n)
-{
-	long	nb2;
-	char	c;
-	int		count;
-
-	nb2 = n;
-	count = 0;
-	if (n < 0)
-	{
-		nb2 = nb2 * (-1);
-	}
-	if (nb2 / 10 != 0)
-	{
-		ft_putnbr(nb2 / 10);
-	}
-	c = nb2 % 10 + '0';
-	count += ft_putchar(c);
-	return (count);
 }
