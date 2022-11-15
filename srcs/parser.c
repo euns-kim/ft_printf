@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:07:54 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/10 22:27:42 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/15 18:21:25 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,17 @@ int	parsing_options(va_list ap, char **str)
 	int		count;
 	t_data	options;
 
-	count = 0;
 	ft_memset(&options, 0, sizeof(t_data));
 	parsing_flags(&options, &str);
 	parsing_wdt_prc(&(options.wdt), &str);
-	if (*str = '.')
+	if (*str == '.')
 	{
 		options.dot = 1;
 		parsing_wdt_prc(&(options.prc), &str);
 	}
 	if (ft_strchr("cspdiuxX%", *str) != 0)
 	{
-		count = print_conversions(&options, ap, &str);
+		count = print_conversions(options, ap, &str);
 	}
 	return (count);
 }
