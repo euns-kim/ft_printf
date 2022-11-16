@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:39:51 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/15 19:32:43 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/16 19:42:17 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,26 @@ int	print_conversions(t_data options, va_list ap, char **str);
 int	print_c(int c, t_data options);
 int	print_s(char *str, t_data options);
 int	print_di(int number, t_data options);
+int	print_u(unsigned int n, t_data options);
 
 //printers
 int	ft_putchar(int c);
 int	ft_putnchar(int c, int n);
 int	ft_putnstr(char *str, int n);
 int	ft_putnbr(int n);
+int	ft_putuint(unsigned int n, t_data options);
 
 //helpers
-int		prc_print(t_data options, int number);
-int		wdt_print(t_data options, int number, char c);
+int		prc_print(t_data options, int num_len);
+int		wdt_print(t_data options, int longer, char c);
 int		sign_print(t_data options, int number);
 int		digit_number_check(int n);
-int		get_longer(int prc, int digit_number);
+int		get_longer(int prc, int num_len);
 void	get_sign(int number, t_data *options);
+
+//libft_helpers
+void	*ft_memset(void *b, int c, size_t len);
+char	*ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *s);
 
 #endif
