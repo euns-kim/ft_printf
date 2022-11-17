@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:06:43 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 16:11:52 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 17:03:47 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ int	print_x(unsigned long n, t_data options, char c)
 	count = 0;
 	hex_len = hex_len_check(n);
 	longer = get_longer(options.prc, hex_len) - options.hash * 2;
-	if (options.dash == 0 && options.dot == 1
-		|| options.dash == 0 && options.dot == 0 && options.zero == 0)
+	if ((options.dash == 0 && options.dot == 1)
+		|| (options.dash == 0 && options.dot == 0 && options.zero == 0))
 		count += wdt_print(options, longer, ' ');
 	count += prefix_print(options, c);
 	if (options.dash == 0 && options.dot == 0 && options.zero == 1)
 		count += wdt_print(options, longer, '0');
 	if (options.dot == 1)
 		count += prc_print(options, hex_len);
-	ft_puthex(n, count, c);
+	ft_puthex(n, &count, c);
 	if (options.dash == 1)
 		count += wdt_print(options, longer, ' ');
 	return (count);

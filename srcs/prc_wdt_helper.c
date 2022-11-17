@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:57:00 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 16:11:59 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 17:07:33 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	prc_print(t_data options, int num_len)
 
 	count = 0;
 	padding = options.prc - num_len;
-	count += ft_putnchar("0", padding);
+	count += ft_putnchar('0', padding);
 	return (count);
 }
 

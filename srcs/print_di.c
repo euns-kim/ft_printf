@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:32:22 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 13:00:31 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 16:59:14 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@
 
 static int	sequence_one(t_data options, int number, int num_len, int longer);
 static int	sequence_two(t_data options, int number, int num_len, int longer);
-static int	sequence_three(t_data options, int number, int num_len, int longer);
-static int	sequence_four(t_data options, int number, int num_len, int longer);
+static int	sequence_three(t_data options, int number, int longer);
+static int	sequence_four(t_data options, int number, int longer);
 
 int	print_di(int number, t_data options)
 {
@@ -63,9 +63,9 @@ int	print_di(int number, t_data options)
 	if (options.dash == 0 && options.dot == 0)
 	{
 		if (options.zero == 1)
-			count += sequence_three(options, number, digit_number, longer);
+			count += sequence_three(options, number, longer);
 		else
-			count += sequence_four(options, number, digit_number, longer);
+			count += sequence_four(options, number, longer);
 	}
 	return (count);
 }
@@ -78,9 +78,9 @@ static int	sequence_one(t_data options, int number, int num_len, int longer)
 	count += sign_print(options, number);
 	count += prc_print(options, num_len);
 	if (!(number == 0 && options.dot == 1 && options.prc == 0))
-		ft_putnbr(number, count);
+		ft_putnbr(number, &count);
 	else
-		count += ft_putchar(" ");
+		count += ft_putchar(' ');
 	count += wdt_print(options, longer, ' ');
 	return (count);
 }
@@ -94,30 +94,30 @@ static int	sequence_two(t_data options, int number, int num_len, int longer)
 	count += sign_print(options, number);
 	count += prc_print(options, num_len);
 	if (!(number == 0 && options.dot == 1 && options.prc == 0))
-		ft_putnbr(number, count);
+		ft_putnbr(number, &count);
 	else
-		count += ft_putchar(" ");
+		count += ft_putchar(' ');
 	return (count);
 }
 
-static int	sequence_three(t_data options, int number, int num_len, int longer)
+static int	sequence_three(t_data options, int number, int longer)
 {
 	int	count;
 
 	count = 0;
 	count += sign_print(options, number);
 	count += wdt_print(options, longer, '0');
-	ft_putnbr(number, count);
+	ft_putnbr(number, &count);
 	return (count);
 }
 
-static int	sequence_four(t_data options, int number, int num_len, int longer)
+static int	sequence_four(t_data options, int number, int longer)
 {
 	int	count;
 
 	count = 0;
 	count += wdt_print(options, longer, ' ');
 	count += sign_print(options, number);
-	ft_putnbr(number, count);
+	ft_putnbr(number, &count);
 	return (count);
 }

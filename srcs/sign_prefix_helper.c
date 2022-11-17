@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:58:52 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 15:53:24 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 17:08:00 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	sign_print(t_data options, int number)
 	count = 0;
 	if (number >= 0 && options.plus == 1)
 	{
-		count += ft_putchar("+");
+		count += ft_putchar('+');
 		return (count);
 	}
 	else if (number >= 0 && options.space == 1)
-		count += ft_putchar(" ");
+		count += ft_putchar(' ');
 	else if (number < 0)
-		count += ft_putchar("-");
+		count += ft_putchar('-');
 	return (count);
 }
 
