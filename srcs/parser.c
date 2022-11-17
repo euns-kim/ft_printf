@@ -6,16 +6,16 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:07:54 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 16:49:51 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 18:14:10 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static void	parsing_flags(t_data *options, const char **str);
-static void	parsing_wdt_prc(int *num, const char **str);
+static void	parsing_flags(t_data *options, char **str);
+static void	parsing_wdt_prc(int *num, char **str);
 
-int	parsing_options(va_list ap, const char **str)
+int	parsing_options(va_list ap, char **str)
 {
 	int		count;
 	t_data	options;
@@ -36,7 +36,7 @@ int	parsing_options(va_list ap, const char **str)
 	return (count);
 }
 
-static void	parsing_flags(t_data *options, const char **str)
+static void	parsing_flags(t_data *options, char **str)
 {
 	while (ft_strchr("-#0 +", **str) != 0)
 	{
@@ -54,7 +54,7 @@ static void	parsing_flags(t_data *options, const char **str)
 	}
 }
 
-static void	parsing_wdt_prc(int *num, const char **str)
+static void	parsing_wdt_prc(int *num, char **str)
 {
 	while (**str >= '0' && **str <= '9')
 	{

@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:39:51 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 16:21:52 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 19:03:17 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ typedef struct s_data
 }	t_data;
 
 //main + main printer
-int	ft_printf(const char *input, ...);
+int		ft_printf(const char *input, ...);
 
 //parser
-int	parsing_options(va_list ap, char **str);
+int		parsing_options(va_list ap, char **str);
 
 //print_*
-int	print_conversions(t_data options, va_list ap, char **str);
-int	print_c(int c, t_data options);
-int	print_s(char *str, t_data options);
-int	print_di(int number, t_data options);
-int	print_u(unsigned int n, t_data options);
-int	print_x(unsigned long n, t_data options, char c);
-int	print_p(unsigned long address, t_data options);
+int		print_conversions(t_data options, va_list ap, char **str);
+int		print_c(int c, t_data options);
+int		print_s(char *str, t_data options);
+int		print_di(int number, t_data options);
+int		print_u(unsigned int n, t_data options);
+int		print_x(unsigned int n, t_data options, char c);
+int		print_p(unsigned long address, t_data options);
 
 //printers
 int		ft_putchar(int c);
@@ -59,7 +59,7 @@ int		wdt_print(t_data options, int longer, char c);
 int		sign_print(t_data options, int number);
 int		prefix_print(t_data options, char c);
 int		digit_number_check(int n);
-int		hex_len_check(unsigned long n)
+int		hex_len_check(unsigned int n);
 int		get_longer(int prc, int num_len);
 void	get_sign(int number, t_data *options);
 

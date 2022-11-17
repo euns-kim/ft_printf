@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:08:20 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 17:02:06 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 18:37:33 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	print_p(unsigned long address, t_data options)
 	add_len = hex_len_check(address);
 	if (options.dash == 0)
 		count += wdt_print(options, add_len + 2, ' ');
-	count += prefix_print(options, 'x');
+	count += ft_putnstr("0x", 2);
 	ft_puthex(address, &count, 'x');
 	if (options.dash == 1)
 		count += wdt_print(options, add_len + 2, ' ');

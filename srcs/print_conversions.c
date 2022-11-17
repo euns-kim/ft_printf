@@ -6,13 +6,13 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:11:17 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 16:53:43 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 18:34:43 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	print_conversions(t_data options, va_list ap, const char **str)
+int	print_conversions(t_data options, va_list ap, char **str)
 {
 	int	count;
 
@@ -31,6 +31,6 @@ int	print_conversions(t_data options, va_list ap, const char **str)
 		count += print_x(va_arg(ap, unsigned long), options, **str);
 	else if (**str == '%')
 		count += print_c('%', options);
-	str++;
+	(*str)++;
 	return (count);
 }

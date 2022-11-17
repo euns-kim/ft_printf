@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:06:43 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 17:03:47 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 19:02:25 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 #include "../ft_printf.h"
 
-int	print_x(unsigned long n, t_data options, char c)
+int	print_x(unsigned int n, t_data options, char c)
 {
 	int	count;
 	int	hex_len;
@@ -33,7 +33,7 @@ int	print_x(unsigned long n, t_data options, char c)
 
 	count = 0;
 	hex_len = hex_len_check(n);
-	longer = get_longer(options.prc, hex_len) - options.hash * 2;
+	longer = get_longer(options.prc, hex_len) + options.hash * 2;
 	if ((options.dash == 0 && options.dot == 1)
 		|| (options.dash == 0 && options.dot == 0 && options.zero == 0))
 		count += wdt_print(options, longer, ' ');
