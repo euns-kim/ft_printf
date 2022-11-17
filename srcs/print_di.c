@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 11:32:22 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/16 18:31:02 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 13:00:31 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static int	sequence_one(t_data options, int number, int num_len, int longer)
 	count += sign_print(options, number);
 	count += prc_print(options, num_len);
 	if (!(number == 0 && options.dot == 1 && options.prc == 0))
-		count += ft_putnbr(number);
+		ft_putnbr(number, count);
 	else
 		count += ft_putchar(" ");
 	count += wdt_print(options, longer, ' ');
@@ -94,7 +94,7 @@ static int	sequence_two(t_data options, int number, int num_len, int longer)
 	count += sign_print(options, number);
 	count += prc_print(options, num_len);
 	if (!(number == 0 && options.dot == 1 && options.prc == 0))
-		count += ft_putnbr(number);
+		ft_putnbr(number, count);
 	else
 		count += ft_putchar(" ");
 	return (count);
@@ -107,7 +107,7 @@ static int	sequence_three(t_data options, int number, int num_len, int longer)
 	count = 0;
 	count += sign_print(options, number);
 	count += wdt_print(options, longer, '0');
-	count += ft_putnbr(number);
+	ft_putnbr(number, count);
 	return (count);
 }
 
@@ -118,6 +118,6 @@ static int	sequence_four(t_data options, int number, int num_len, int longer)
 	count = 0;
 	count += wdt_print(options, longer, ' ');
 	count += sign_print(options, number);
-	count += ft_putnbr(number);
+	ft_putnbr(number, count);
 	return (count);
 }

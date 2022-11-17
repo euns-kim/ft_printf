@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:39:51 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/16 19:42:17 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 16:21:52 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,24 @@ int	print_c(int c, t_data options);
 int	print_s(char *str, t_data options);
 int	print_di(int number, t_data options);
 int	print_u(unsigned int n, t_data options);
+int	print_x(unsigned long n, t_data options, char c);
+int	print_p(unsigned long address, t_data options);
 
 //printers
-int	ft_putchar(int c);
-int	ft_putnchar(int c, int n);
-int	ft_putnstr(char *str, int n);
-int	ft_putnbr(int n);
-int	ft_putuint(unsigned int n, t_data options);
+int		ft_putchar(int c);
+int		ft_putnchar(int c, int n);
+int		ft_putnstr(char *str, int n);
+void	ft_putnbr(int n, int *count);
+void	ft_putuint(unsigned int n, int *count, t_data options);
+void	ft_puthex(unsigned long n, int *count, char c);
 
 //helpers
 int		prc_print(t_data options, int num_len);
 int		wdt_print(t_data options, int longer, char c);
 int		sign_print(t_data options, int number);
+int		prefix_print(t_data options, char c);
 int		digit_number_check(int n);
+int		hex_len_check(unsigned long n)
 int		get_longer(int prc, int num_len);
 void	get_sign(int number, t_data *options);
 

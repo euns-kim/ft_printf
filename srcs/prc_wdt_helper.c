@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_helper.c                                     :+:      :+:    :+:   */
+/*   prc_wdt_helper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:57:00 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/16 19:37:31 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 16:11:59 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,19 @@ int	get_longer(int prc, int num_len)
 	if (prc < num_len)
 		longer = num_len;
 	return (longer);
+}
+
+int	hex_len_check(unsigned long n)
+{
+	int	hex_len;
+
+	hex_len = 0;
+	if (n == 0)
+		hex_len = 1;
+	while (n)
+	{
+		n = n / 16;
+		hex_len++;
+	}
+	return (hex_len);
 }

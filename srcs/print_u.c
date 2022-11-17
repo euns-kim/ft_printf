@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:32:47 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/16 19:36:25 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 13:00:43 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ int	print_u(unsigned int n, t_data options)
 			count += wdt_print(options, longer, ' ');
 		else
 			count += wdt_print(options, longer, '0');
-		count += ft_putuint(n, options);
+		ft_putuint(n, count, options);
 	}
 	else
 	{
 		if (options.dash == 0 && options.dot == 1)
 			count += wdt_print(options, longer, ' ');
 		count += prc_print(options, uint_size);
-		count += ft_putuint(n, options);
+		ft_putuint(n, count, options);
 		if (options.dash == 1)
 			count += wdt_print(options, longer, ' ');
 	}
