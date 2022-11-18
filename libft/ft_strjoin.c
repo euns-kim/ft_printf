@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/22 01:56:27 by eunskim           #+#    #+#             */
+/*   Updated: 2022/11/07 16:13:58 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	write (1, &c, 1);
-	return (1);
-}
-
-int	ft_putnchar(int c, int n)
-{
-	int	i;
+	char	*newstr;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
-	if (n <= 0)
+	j = 0;
+	newstr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (newstr == NULL)
 		return (0);
-	else
+	while (s1[i])
 	{
-		while (i < n)
-		{
-			write (1, &c, 1);
-			i++;
-		}
+		newstr[j++] = s1[i++];
 	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+	i = 0;
+	while (s2[i])
+	{
+		newstr[j++] = s2[i++];
+	}
+	newstr[j] = '\0';
+	return (newstr);
 }

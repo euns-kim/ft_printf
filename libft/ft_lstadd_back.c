@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/29 16:18:12 by eunskim           #+#    #+#             */
+/*   Updated: 2022/10/29 17:12:36 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	write (1, &c, 1);
-	return (1);
-}
+	t_list	*last;
 
-int	ft_putnchar(int c, int n)
-{
-	int	i;
-
-	i = 0;
-	if (n <= 0)
-		return (0);
-	else
+	if (lst == 0 || new == 0)
+		return ;
+	if (*lst == 0)
 	{
-		while (i < n)
-		{
-			write (1, &c, 1);
-			i++;
-		}
-	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+		*lst = new;
+		return ;
+	}	
+	last = ft_lstlast(*lst);
+	last->next = new;
 }

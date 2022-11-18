@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/28 15:31:54 by eunskim           #+#    #+#             */
+/*   Updated: 2022/10/28 16:16:56 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	write (1, &c, 1);
-	return (1);
-}
+	unsigned int	len;
+	unsigned int	i;
+	char			*newstring;
 
-int	ft_putnchar(int c, int n)
-{
-	int	i;
-
+	len = ft_strlen(s);
 	i = 0;
-	if (n <= 0)
+	newstring = malloc (sizeof(char) * (len + 1));
+	if (newstring == 0)
 		return (0);
-	else
+	while (i < len)
 	{
-		while (i < n)
-		{
-			write (1, &c, 1);
-			i++;
-		}
+		*(newstring + i) = f (i, *(s + i));
+		i++;
 	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+	newstring[len] = 0;
+	return (newstring);
 }

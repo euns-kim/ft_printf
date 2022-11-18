@@ -1,43 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/28 17:30:25 by eunskim           #+#    #+#             */
+/*   Updated: 2022/10/28 17:47:42 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	write (1, &c, 1);
-	return (1);
-}
+	long	nb2;
+	char	c;
 
-int	ft_putnchar(int c, int n)
-{
-	int	i;
-
-	i = 0;
-	if (n <= 0)
-		return (0);
-	else
+	nb2 = n;
+	if (n < 0)
 	{
-		while (i < n)
-		{
-			write (1, &c, 1);
-			i++;
-		}
+		nb2 = nb2 * (-1);
+		write(fd, "-", 1);
 	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+	if (nb2 / 10 != 0)
+	{
+		ft_putnbr_fd(nb2 / 10, fd);
+	}
+	c = nb2 % 10 + '0';
+	write(fd, &c, 1);
 }

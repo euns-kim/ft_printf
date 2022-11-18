@@ -1,43 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/13 17:38:30 by eunskim           #+#    #+#             */
+/*   Updated: 2022/10/17 21:29:40 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
-
-int	ft_putchar(int c)
+int	ft_toupper(int c)
 {
-	write (1, &c, 1);
-	return (1);
-}
-
-int	ft_putnchar(int c, int n)
-{
-	int	i;
-
-	i = 0;
-	if (n <= 0)
-		return (0);
-	else
-	{
-		while (i < n)
-		{
-			write (1, &c, 1);
-			i++;
-		}
-	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+	if (c >= 'a' && c <= 'z')
+		c = c - ('a' - 'A');
+	return (c);
 }

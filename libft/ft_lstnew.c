@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/28 22:08:24 by eunskim           #+#    #+#             */
+/*   Updated: 2022/10/28 22:28:54 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+t_list	*ft_lstnew(void *content)
 {
-	write (1, &c, 1);
-	return (1);
-}
+	t_list	*new;
 
-int	ft_putnchar(int c, int n)
-{
-	int	i;
-
-	i = 0;
-	if (n <= 0)
+	new = NULL;
+	new = (t_list *) malloc (sizeof(t_list));
+	if (new == 0)
 		return (0);
-	else
-	{
-		while (i < n)
-		{
-			write (1, &c, 1);
-			i++;
-		}
-	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

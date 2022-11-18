@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:32:47 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 17:02:23 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/18 17:47:44 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 #include "../ft_printf.h"
 
-static int	uint_size_check(unsigned int n);
+static int	uint_size_check(unsigned int n, t_data *options);
 
 int	print_u(unsigned int n, t_data options)
 {
@@ -35,7 +35,7 @@ int	print_u(unsigned int n, t_data options)
 	int	longer;
 
 	count = 0;
-	uint_size = uint_size_check(n);
+	uint_size = uint_size_check(n, &options);
 	longer = get_longer(options.prc, uint_size);
 	if (options.dash == 0 && options.dot == 0)
 	{
@@ -57,13 +57,15 @@ int	print_u(unsigned int n, t_data options)
 	return (count);
 }
 
-static int	uint_size_check(unsigned int n)
+static int	uint_size_check(unsigned int n, t_data *options)
 {
 	int	uint_size;
 
 	uint_size = 0;
 	if (n == 0)
 		uint_size = 1;
+	if (n == 0 && options->dot == 1 && options->prc == 0)
+		uint_size = 0;
 	while (n)
 	{
 		n = n / 10;

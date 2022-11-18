@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:39:51 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 19:03:17 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/18 18:46:29 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stddef.h>
 # include <stdarg.h>
 # include <unistd.h>
+
+# include "libft/libft.h"
 
 typedef struct s_data
 {
@@ -31,7 +33,7 @@ typedef struct s_data
 }	t_data;
 
 //main + main printer
-int		ft_printf(const char *input, ...);
+int		ft_printf(const char *string_input, ...);
 
 //parser
 int		parsing_options(va_list ap, char **str);
@@ -51,21 +53,15 @@ int		ft_putnchar(int c, int n);
 int		ft_putnstr(char *str, int n);
 void	ft_putnbr(int n, int *count);
 void	ft_putuint(unsigned int n, int *count, t_data options);
-void	ft_puthex(unsigned long n, int *count, char c);
+void	ft_puthex(unsigned long n, int *count, char c, t_data options);
 
 //helpers
 int		prc_print(t_data options, int num_len);
 int		wdt_print(t_data options, int longer, char c);
 int		sign_print(t_data options, int number);
-int		prefix_print(t_data options, char c);
+int		prefix_print(t_data options, char c, unsigned int n);
 int		digit_number_check(int n);
-int		hex_len_check(unsigned int n);
 int		get_longer(int prc, int num_len);
 void	get_sign(int number, t_data *options);
-
-//libft_helpers
-void	*ft_memset(void *b, int c, size_t len);
-char	*ft_strchr(const char *s, int c);
-size_t	ft_strlen(const char *s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:07:54 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 18:14:10 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/17 19:29:07 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	parsing_options(va_list ap, char **str)
 	if (**str == '.')
 	{
 		options.dot = 1;
+		(*str)++;
 		parsing_wdt_prc(&(options.prc), str);
 	}
 	if (ft_strchr("cspdiuxX%", **str) != 0)
@@ -50,7 +51,7 @@ static void	parsing_flags(t_data *options, char **str)
 			options->space = 1;
 		else if (**str == '+')
 			options->plus = 1;
-		str++;
+		(*str)++;
 	}
 }
 
@@ -59,6 +60,6 @@ static void	parsing_wdt_prc(int *num, char **str)
 	while (**str >= '0' && **str <= '9')
 	{
 		*num = *num * 10 + (**str - '0');
-		str++;
+		(*str)++;
 	}
 }

@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/19 17:51:14 by eunskim           #+#    #+#             */
+/*   Updated: 2022/10/20 14:52:19 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+int	ft_memcmp(void *s1, void *s2, size_t n)
 {
-	write (1, &c, 1);
-	return (1);
-}
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t			i;
 
-int	ft_putnchar(int c, int n)
-{
-	int	i;
-
+	str1 = s1;
+	str2 = s2;
 	i = 0;
-	if (n <= 0)
+	if (n == 0)
 		return (0);
-	else
+	while (i < n)
 	{
-		while (i < n)
-		{
-			write (1, &c, 1);
-			i++;
-		}
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
 	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+	return (0);
 }

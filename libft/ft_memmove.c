@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/19 16:31:55 by eunskim           #+#    #+#             */
+/*   Updated: 2022/10/19 17:49:17 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	write (1, &c, 1);
-	return (1);
-}
+	char	*to;
+	char	*from;
 
-int	ft_putnchar(int c, int n)
-{
-	int	i;
-
-	i = 0;
-	if (n <= 0)
-		return (0);
-	else
+	to = (char *) dst;
+	from = (char *) src;
+	if (len == 0 || dst == src)
+		return (dst);
+	if (to > from && to - from < (int) len)
 	{
-		while (i < n)
+		while (len > 0)
 		{
-			write (1, &c, 1);
-			i++;
+			to[len - 1] = from[len - 1];
+			len--;
 		}
+		return (dst);
 	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+	ft_memcpy(dst, src, len);
+	return (dst);
 }

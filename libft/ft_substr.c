@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/21 15:05:59 by eunskim           #+#    #+#             */
+/*   Updated: 2022/11/07 16:42:06 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	write (1, &c, 1);
-	return (1);
-}
-
-int	ft_putnchar(int c, int n)
-{
-	int	i;
+	char	*str;
+	size_t	i;
+	size_t	slen;
 
 	i = 0;
-	if (n <= 0)
+	if (!s)
 		return (0);
-	else
+	slen = ft_strlen(s);
+	if (start >= slen)
+		len = 0;
+	else if (slen - start <= len)
+		len = slen - start;
+	str = (char *) malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
+	while (i < len && s[start + i] != '\0')
 	{
-		while (i < n)
-		{
-			write (1, &c, 1);
-			i++;
-		}
+		str[i] = s[start + i];
+		i++;
 	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+	str[i] = '\0';
+	return (str);
 }

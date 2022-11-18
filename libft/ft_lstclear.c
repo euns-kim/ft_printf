@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/29 17:25:10 by eunskim           #+#    #+#             */
+/*   Updated: 2022/11/07 13:00:15 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	write (1, &c, 1);
-	return (1);
-}
+	t_list	*curr;
+	t_list	*next;
 
-int	ft_putnchar(int c, int n)
-{
-	int	i;
-
-	i = 0;
-	if (n <= 0)
-		return (0);
-	else
+	curr = *lst;
+	while (curr)
 	{
-		while (i < n)
-		{
-			write (1, &c, 1);
-			i++;
-		}
+		next = curr->next;
+		del(curr->content);
+		free(curr);
+		curr = next;
 	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+	*lst = NULL;
 }

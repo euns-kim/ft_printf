@@ -6,7 +6,7 @@
 #    By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 22:12:05 by eunskim           #+#    #+#              #
-#    Updated: 2022/11/17 19:16:06 by eunskim          ###   ########.fr        #
+#    Updated: 2022/11/18 16:58:09 by eunskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,14 +30,15 @@ print_x.c \
 nbr_printer.c \
 char_printer.c \
 prc_wdt_helper.c \
-sign_prefix_helper.c \
-libft_helper.c)
+sign_prefix_helper.c)
 
 OBJS = $(SRCS:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
+	make -C libft
+	mv libft/libft.a libftprintf.a
 	ar rcs $(NAME) $(OBJS)
 	
 $(addprefix $(SRC_DIR), $(OBJS)) : $(SRCS)

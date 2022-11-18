@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   char_printer.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 21:34:07 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 16:51:08 by eunskim          ###   ########.fr       */
+/*   Created: 2022/10/18 19:28:48 by eunskim           #+#    #+#             */
+/*   Updated: 2022/10/18 19:44:47 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	write (1, &c, 1);
-	return (1);
-}
+	const char	*p;
 
-int	ft_putnchar(int c, int n)
-{
-	int	i;
-
-	i = 0;
-	if (n <= 0)
-		return (0);
-	else
+	p = s + ft_strlen(s) - 1;
+	if ((char) c == '\0')
+		return ((char *) p + 1);
+	while (p >= s)
 	{
-		while (i < n)
-		{
-			write (1, &c, 1);
-			i++;
-		}
+		if ((char) c == *p)
+			return ((char *) p);
+		p--;
 	}
-	return (n);
-}
-
-int	ft_putnstr(char *str, int n)
-{
-	write (1, str, n);
-	return (n);
+	return (0);
 }

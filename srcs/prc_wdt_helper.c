@@ -6,7 +6,7 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:57:00 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/17 19:02:53 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/18 16:18:01 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,4 @@ int	get_longer(int prc, int num_len)
 	if (prc < num_len)
 		longer = num_len;
 	return (longer);
-}
-
-int	hex_len_check(unsigned int n)
-{
-	int	hex_len;
-
-	hex_len = 0;
-	if (n == 0)
-		hex_len = 1;
-	while (n)
-	{
-		n = n / 16;
-		hex_len++;
-	}
-	return (hex_len);
 }
