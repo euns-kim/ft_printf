@@ -6,7 +6,7 @@
 #    By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 22:12:05 by eunskim           #+#    #+#              #
-#    Updated: 2022/11/18 16:58:09 by eunskim          ###   ########.fr        #
+#    Updated: 2022/11/18 19:19:45 by eunskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ $(addprefix $(SRC_DIR), $(OBJS)) : $(SRCS)
 bonus : all
 	
 clean :
+	make -C libft fclean
 	rm -f $(OBJS)
 
 fclean : clean
