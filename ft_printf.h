@@ -6,14 +6,13 @@
 /*   By: eunskim <eunskim@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:39:51 by eunskim           #+#    #+#             */
-/*   Updated: 2022/11/18 18:46:29 by eunskim          ###   ########.fr       */
+/*   Updated: 2022/11/18 19:00:12 by eunskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stddef.h>
 # include <stdarg.h>
 # include <unistd.h>
 
